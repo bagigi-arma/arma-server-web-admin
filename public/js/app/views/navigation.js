@@ -45,7 +45,7 @@ module.exports = Marionette.ItemView.extend({
     event.preventDefault()
     sweetAlert({
       title: 'WARNING!\nAre you sure?',
-      text: 'The service and all servers will stopped in order to complete the update.',
+      text: 'This will update the server, mods and mod keys.\n\nThe website and all servers will be unavailable during the update.',
       type: 'warning',
       showCancelButton: true,
       confirmButtonClass: 'btn-warning',
