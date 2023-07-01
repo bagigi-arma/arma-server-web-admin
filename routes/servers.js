@@ -17,6 +17,10 @@ module.exports = function (manager, mods) {
     res.json(server)
   })
 
+  router.post('/restart', function (req, res) {
+    res.json(manager.restart())
+  })
+
   router.get('/:server', function (req, res) {
     var server = manager.getServer(req.params.server)
     res.json(server)

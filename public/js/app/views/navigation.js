@@ -19,7 +19,8 @@ module.exports = Marionette.ItemView.extend({
   },
 
   events: {
-    'click #settings': 'settings'
+    'click #settings': 'settings',
+    'click #restart': 'restart'    
   },
 
   initialize: function (options) {
@@ -38,5 +39,26 @@ module.exports = Marionette.ItemView.extend({
     event.preventDefault()
     var view = new SettingsView({ model: this.settings })
     new BootstrapModal({ content: view, animate: true, cancelText: false }).open()
+  },
+
+  restart: function (event) {
+    event.preventDefault()
+    sweetAlert({
+      title: 'WARNING!\nAre you sure?',
+      text: 'The service and all servers will stopped in order to complete the update.',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonClass: 'btn-warning',
+      confirmButtonText: "Yes, update it!"
+    },
+    function () {
+      event.preventDefault()
+
+      var self = this
+      $.ajax({
+        url: '/api/servers/restart',
+        type: 'POST'        
+      })
+    })
   }
 })
