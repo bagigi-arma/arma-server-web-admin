@@ -12,3 +12,12 @@ body {
 .text-nowrap {
   white-space: nowrap;
 }
+
+#chart-container {
+  display: none;
+  padding: 15px;
+}
+
+.close-chart {
+  margin-top: 10px;
+}

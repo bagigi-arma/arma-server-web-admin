@@ -9,5 +9,14 @@ var template = _.template(tpl)
 module.exports = Marionette.CompositeView.extend({
   childView: ListItemView,
   childViewContainer: 'tbody',
-  template: template
+  template: template,
+
+  events: {
+    'click .close-chart': 'closePerf'
+  },
+
+  closePerf: function (event) {
+    document.getElementById("chart-container").style.display = "none";
+  } 
+
 })
