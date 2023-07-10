@@ -103,5 +103,6 @@ module.exports = Marionette.ItemView.extend({
     var logName = caller['target'];
     computePerf(logName);
     document.getElementById("chart-container").style.display = "block";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 })
